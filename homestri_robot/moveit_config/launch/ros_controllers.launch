@@ -6,6 +6,6 @@
 
   <!-- Load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" args="manipulator_pos gripper_pos joint_state_controller"/>
+    output="screen" args="--timeout 0 manipulator_pos gripper_pos joint_state_controller arm_eff_controller arm_pos_controller"/>
 
 </launch>
