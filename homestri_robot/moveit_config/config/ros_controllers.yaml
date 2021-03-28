@@ -71,13 +71,33 @@ gripper_pos:
   action_monitor_rate: 10
 
 # this doesn't work or help
-# gazebo_ros_control/pid_gains:
+gazebo_ros_control/pid_gains:
 #   gripper_finger1_joint: {p: 10, d: 0.01, i: 0.05, i_clamp: 1}
 
 # https://github.com/ros-industrial/universal_robot/pull/526/files
-#   shoulder_pan_joint: {p: 4000,  d: 200, i: 1, i_clamp: 1}
-#   shoulder_lift_joint: {p: 10000,  d: 200, i: 1, i_clamp: 1}
-#   elbow_joint: {p: 2000,  d: 20, i: 1, i_clamp: 1}
-#   wrist_1_joint: {p: 500,  d: 1, i: 1, i_clamp: 1}
-#   wrist_2_joint: {p: 500,  d: 1, i: 1, i_clamp: 1}
-#   wrist_3_joint: {p: 10,  d: 0.1, i: 0, i_clamp: 1} 
+  shoulder_pan_joint: {p: 4000,  d: 200, i: 1, i_clamp: 1}
+  shoulder_lift_joint: {p: 10000,  d: 200, i: 1, i_clamp: 1}
+  elbow_joint: {p: 2000,  d: 20, i: 1, i_clamp: 1}
+  wrist_1_joint: {p: 500,  d: 1, i: 1, i_clamp: 1}
+  wrist_2_joint: {p: 500,  d: 1, i: 1, i_clamp: 1}
+  wrist_3_joint: {p: 10,  d: 0.1, i: 0, i_clamp: 1} 
+
+arm_eff_controller:
+  type: effort_controllers/JointGroupEffortController
+  joints:
+    - shoulder_pan_joint
+    - shoulder_lift_joint
+    - elbow_joint
+    - wrist_1_joint
+    - wrist_2_joint
+    - wrist_3_joint
+
+arm_pos_controller:
+  type: effort_controllers/JointGroupPositionController
+  joints:
+    - shoulder_pan_joint
+    - shoulder_lift_joint
+    - elbow_joint
+    - wrist_1_joint
+    - wrist_2_joint
+    - wrist_3_joint
